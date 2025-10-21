@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GlowFinder</title>
+
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body class="home">
+    <div class="frame">
+      <!-- Header -->
+      <header class="site-header">
+        <h1 class="brand">GlowFinder</h1>
+        <form class="search" action="#">
+          <input type="search" placeholder="search" aria-label="Search" />
+        </form>
+      </header>
+
+      <!-- Top navigation (with hover menu on “shop.”) -->
+      <nav class="top-nav" aria-label="Main">
+        <div class="nav-cell has-flyout">
+          <a href="#" class="nav-left">shop.</a>
+
+          <!-- flyout menu: only visible on hover/focus -->
+          <div class="flyout-menu" aria-label="Shop categories">
+            <ul>
+              <li><a href="?view=all">All products</a></li>
+              <li><a href="#">Make up</a></li>
+              <li><a href="#">Perfume</a></li>
+              <li><a href="#">Sale</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="#" class="nav-center">about us.</a>
+        <a href="#" class="nav-right">cart.</a>
+      </nav>
+
+      <!-- Main -->
+      <main class="content" aria-label="Homepage">
+        <div class="products-layout">
+          <h2 class="section-title" id="sectionTitle">News</h2>
+
+          <aside id="brandFilter" class="filters" hidden>
+            <h3 class="filters__title">filter</h3>
+            <div class="filters__section">
+              <h4 class="filters__heading">Brand</h4>
+              <div class="filters__list" id="brandFilterList"></div>
+              <div class="filters__actions">
+                <button type="button" id="applyFilters" class="btn btn--apply">
+                  apply filters
+                </button>
+                <button type="button" id="clearFilters" class="btn btn--clear">
+                  clear filters
+                </button>
+              </div>
+            </div>
+          </aside>
+          <div class="container"></div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p>glowfinder@hotmail.com</p>
+          <p>phone: 23 74 63 25</p>
+        </div>
+        <div class="footer-col right">
+          <h3>Stay in touch</h3>
+          <ul class="social">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">TikTok</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Product card template (used by JS) -->
+    <template id="product-card-template">
+      <article class="product-card">
+        <a class="product-card__link" href="#">
+          <div class="product-card__image-wrap">
+            <img class="product-card__image" alt="" loading="lazy" />
+          </div>
+          <h3 class="product-card__brand"></h3>
+          <p class="product-card__title"></p>
+        </a>
+      </article>
+    </template>
+
+    <script src="js/index.js" defer></script>
+  </body>
+</html>
