@@ -1,8 +1,5 @@
-/* =============== */
-/* Mobile first    */
-/* =============== */
 :root {
-  --paper: #fbf7ec; /* warm off-white like the mock */
+  --paper: #fbf7ec;
   --ink: #1e1e1e;
   --line: #2f2f2f; /* thin dark borders */
 }
@@ -23,39 +20,30 @@ body {
   line-height: 1.35;
 }
 
-/* Outer frame around the whole page */
-.frame {
-  min-height: 100vh;
-  border: 1px solid var(--line);
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  background: var(--paper);
-}
-
 /* Header */
 .site-header {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr auto; /* space | search */
+  grid-template-columns: 1fr auto;
   align-items: center;
   padding: 12px 10px 10px;
   border-bottom: 1px solid var(--line);
 }
 
 .brand {
-  grid-column: 1 / -1; /* spans full row so it can center */
+  grid-column: 1 / -1;
   margin: 0;
   text-align: center;
   font-style: italic;
   letter-spacing: 3px;
-  font-size: 42px; /* tuned to screenshot */
+  font-size: 42px;
   font-weight: 600;
 }
 
 .search {
   grid-column: 2;
   justify-self: end;
-  margin-top: -34px; /* nudge up to align with logo baseline */
+  margin-top: -34px;
 }
 .search input {
   width: 128px;
@@ -67,7 +55,7 @@ body {
   padding: 2px 6px;
 }
 
-/* Top nav (three items: left | center | right) */
+/* Top nav*/
 .top-nav {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -89,69 +77,6 @@ body {
 }
 .top-nav .nav-right {
   justify-self: end;
-}
-
-/* Big empty content area (as per mock) */
-.content {
-  min-height: 60vh; /* keeps a tall canvas on phones */
-}
-
-/* ===== Hover menu on “shop.” ===== */
-.top-nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 8px;
-  padding: 6px 8px;
-  border-bottom: 1px solid var(--line);
-  font-size: 16px;
-}
-.top-nav a {
-  color: var(--ink);
-  text-decoration: none;
-}
-.top-nav .nav-center {
-  justify-self: center;
-}
-.top-nav .nav-right {
-  justify-self: end;
-}
-
-/* wrapper for the first cell so the flyout can be positioned */
-.top-nav .nav-cell {
-  position: relative;
-  justify-self: start;
-}
-
-/* flyout box (hidden by default) */
-.flyout-menu {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  width: 120px;
-  background: #fff;
-  border: 1px solid var(--line);
-  padding: 6px 8px;
-  display: none;
-  z-index: 5;
-}
-.flyout-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.flyout-menu li + li {
-  margin-top: 6px;
-}
-.flyout-menu a {
-  color: var(--ink);
-  text-decoration: none;
-  font-size: 12px;
-}
-
-/* show on hover or keyboard focus */
-.has-flyout:hover .flyout-menu,
-.has-flyout:focus-within .flyout-menu {
-  display: block;
 }
 
 /* ===== Desktop enhancements ===== */
@@ -218,5 +143,75 @@ body {
       justify-self: center;
       text-align: left; /* override any .right{text-align:right} */
     }
+  }
+}
+
+/* ===== Product detail ===== */
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 16px;
+}
+.product-detail__media {
+  justify-self: center;
+}
+.product-detail__image {
+  max-width: 520px;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  background: #fff;
+  display: block;
+}
+.product-detail__info {
+  max-width: 640px;
+  justify-self: start;
+}
+.product-detail__brand {
+  margin: 0 0 4px;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  text-transform: none;
+}
+.product-detail__title {
+  margin: 0 0 8px;
+  font-size: 26px;
+  font-weight: 700;
+}
+.product-detail__price {
+  margin: 0 0 16px;
+  font-size: 16px;
+}
+.product-detail__description {
+  margin-top: 16px;
+  max-width: 60ch;
+}
+.product-detail__back {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+/* button */
+.btn.btn--primary {
+  border: 1px solid var(--line);
+  background: #0f1a2b;
+  color: #fff;
+  padding: 10px 16px;
+  font: inherit;
+  cursor: pointer;
+}
+.btn.btn--primary:hover {
+  filter: brightness(1.05);
+}
+
+/* Desktop layout */
+@media (min-width: 900px) {
+  .product-detail {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+    padding: 24px 20px;
   }
 }

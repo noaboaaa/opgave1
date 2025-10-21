@@ -20,28 +20,40 @@
 
       <!-- Top navigation (with hover menu on “shop.”) -->
       <nav class="top-nav" aria-label="Main">
-        <div class="nav-cell has-flyout">
-          <a href="#" class="nav-left">shop.</a>
-
-          <!-- flyout menu: only visible on hover/focus -->
-          <div class="flyout-menu" aria-label="Shop categories">
-            <ul>
-              <li><a href="?view=all">All products</a></li>
-              <li><a href="#">Make up</a></li>
-              <li><a href="#">Perfume</a></li>
-              <li><a href="#">Sale</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <a href="#" class="nav-center">about us.</a>
         <a href="#" class="nav-right">cart.</a>
       </nav>
 
       <!-- Main -->
       <main class="content" aria-label="Homepage">
         <div class="products-layout">
-          <h2 class="section-title" id="sectionTitle">News</h2>
+          <nav class="subnav" aria-label="Product sections">
+            <ul class="subnav__list">
+              <li>
+                <a href="?view=all" data-view="all" class="subnav__link"
+                  >All products</a
+                >
+              </li>
+              <li>
+                <a href="?view=makeup" data-view="makeup" class="subnav__link"
+                  >Makeup</a
+                >
+              </li>
+              <li>
+                <a href="?view=perfume" data-view="perfume" class="subnav__link"
+                  >Perfume</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <!-- Top-right toolbar: Sort control -->
+          <div class="products-toolbar" id="productsToolbar" hidden>
+            <label for="sortSelect" class="products-toolbar__label">Sort</label>
+            <select id="sortSelect" class="products-toolbar__select">
+              <option value="">None</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+          </div>
 
           <aside id="brandFilter" class="filters" hidden>
             <h3 class="filters__title">filter</h3>
@@ -80,7 +92,10 @@
       </footer>
     </div>
 
-    <!-- Product card template (used by JS) -->
+    <!-- Product detail container  -->
+    <div id="productDetailContainer" class="product-detail-container"></div>
+
+    <!-- Product card template  -->
     <template id="product-card-template">
       <article class="product-card">
         <a class="product-card__link" href="#">
